@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+body, html{
+    height: 100%;
+    background-color: black;
+    color: ghostwhite;
+    font-family: 'Kanit', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.app{
+    text-align: center;
+}
+ul{
+    list-style: none;
+}
+button{
+    background-color: aliceblue;
+    border-radius: 0.25em;
+    max-height: 25px;
+}
+li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+li > h2{
+    margin-right: 15px;
+}
+input{
+    margin-right: 15px;
+}

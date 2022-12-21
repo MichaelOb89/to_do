@@ -56,40 +56,44 @@ export default function ToDoList({
     return(
         <>
             <h1>Create Todo</h1> 
-            <input name="text"  onChange={handleChange} type='text'/>
+            <input name="text" value={newActivity.text} onChange={handleChange} type='text'/>
             <button onClick={()=>createToDo()}>Create new Todo</button>
             {activities && activities.length ?(
                 <>
                     <h2>To do items</h2>
-                    <ul>
-                        {activities.filter((el) => !el.completed).map((item) => {
-                            return(
-                                <ToDo
-                                key={item._id}
-                                activity={item}
-                                activities={activities}
-                                getActivities={getActivities}
-                                foundActivity={foundActivity}
-                                setFoundActivity={setFoundActivity}
-                                />
-                            )
-                        })}
-                    </ul>
+                    <div className="to-do">
+                        <ul>
+                            {activities.filter((el) => !el.completed).map((item) => {
+                                return(
+                                    <ToDo
+                                    key={item._id}
+                                    activity={item}
+                                    activities={activities}
+                                    getActivities={getActivities}
+                                    foundActivity={foundActivity}
+                                    setFoundActivity={setFoundActivity}
+                                    />
+                                )
+                            })}
+                        </ul>
+                    </div>
                     <h2>Completed</h2>
-                    <ul>
-                        {activities.filter((el) => el.completed).map((item) => {
-                            return(
-                                <ToDo
-                                key={item._id}
-                                activity={item}
-                                activities={activities}
-                                getActivities={getActivities}
-                                foundActivity={foundActivity}
-                                setFoundActivity={setFoundActivity}
-                                />
-                            )
-                        })}
-                    </ul>
+                    <div className="complete">
+                        <ul>
+                            {activities.filter((el) => el.completed).map((item) => {
+                                return(
+                                    <ToDo
+                                    key={item._id}
+                                    activity={item}
+                                    activities={activities}
+                                    getActivities={getActivities}
+                                    foundActivity={foundActivity}
+                                    setFoundActivity={setFoundActivity}
+                                    />
+                                )
+                            })}
+                        </ul>
+                    </div>
                 </>
             ) : (<h2>No activities found</h2>)}
        </>

@@ -3,7 +3,7 @@ import ToDoList from './components/ToDoList'
 
 export default function App(){
     const [activities, setActivities] = useState(null)
-    const [newActivity, setNewActivity] = useState(null)
+    const [newActivity, setNewActivity] = useState({text:"", completed: false})
     const [foundActivity, setFoundActivity] = useState(null)
 
     const handleChange = (e) => {
@@ -21,6 +21,7 @@ export default function App(){
             })
             const data = await response.json()
             setFoundActivity(data)
+            setNewActivity({text: '', completed: false})
         } catch(err){
             console.log(err)
         }
@@ -43,7 +44,7 @@ export default function App(){
     }, [foundActivity])
 
     return(
-        <>
+        <div className='app'>
             <ToDoList
             activities={activities}
             setActivities={setActivities}
@@ -55,6 +56,6 @@ export default function App(){
             createToDo={createToDo}
             getActivities={getActivities}
             />
-        </>
+        </div>
     )
 }
